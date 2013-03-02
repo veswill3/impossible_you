@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @goal.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @goal.description %>
+</p>
+
+<p>
+  <b>Completed:</b>
+  <%= @goal.completed %>
+</p>
+
+<p>
+  <b>Img url:</b>
+  <%= @goal.img_url %>
+</p>
+
+<p>
+  <b>List:</b>
+  <%= @goal.list.title %>
+</p>
+
+
+<%= link_to 'Edit', edit_list_goal_path(@goal.list, @goal) %> |
+<%= link_to 'Back', list_path(@goal.list) %>

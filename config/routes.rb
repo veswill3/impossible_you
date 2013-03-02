@@ -1,6 +1,12 @@
 ImpossibleYou::Application.routes.draw do
 
-  root :to => 'static_pages#home'
+
+
+  resources :lists do
+    resources :goals
+  end
+
+  root :to => 'lists#index'
 
   get "static_pages/about"
 

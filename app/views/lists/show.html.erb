@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @list.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @list.description %>
+</p>
+
+<table>
+<% @goals.each do |goal| %>
+  <tr>
+    <td><%= goal.title %></td>
+    <td><%= goal.description %></td>
+    <td><%= goal.completed %></td>
+    <td><%= goal.img_url %></td>
+    <td><%= link_to 'Show', list_goal_path(@list, goal) %></td>
+    <td><%= link_to 'Edit', edit_list_goal_path(@list, goal) %></td>
+    <td><%= link_to 'Destroy', goal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to 'Add Goal', new_list_goal_path(@list) %> |
+<%= link_to 'Edit', edit_list_path(@list) %> |
+<%= link_to 'Back', lists_path %>
