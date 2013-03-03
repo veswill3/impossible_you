@@ -19,7 +19,7 @@
     <td><%= goal.img_url %></td>
     <td><%= link_to 'Show', list_goal_path(@list, goal) %></td>
     <td><%= link_to 'Edit', edit_list_goal_path(@list, goal) %></td>
-    <td><%= link_to 'Destroy', list_goal(@list, goal), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Destroy', list_goal_path(@list, goal), method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
