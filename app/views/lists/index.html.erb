@@ -11,12 +11,11 @@
 
 <% @lists.each do |list| %>
   <tr>
-    <td><%= list.title %></td>
+    <td><h4><%= link_to list.title, list %></h4></td>
     <td><%= list.description %></td>
-    <td><%= link_to 'Show', list %></td>
     <% if false %>
-    <td><%= link_to 'Edit', edit_list_path(list) %></td>
-    <td><%= link_to 'Destroy', list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to 'Edit', edit_list_path(list) %></td>
+      <td><%= link_to 'Destroy', list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     <% end %>
   </tr>
 <% end %>
@@ -24,4 +23,4 @@
 
 <br />
 
-<%= link_to 'New List', new_list_path %>
+<%= link_to 'New List', new_list_path, class: "btn btn-primary" %>
