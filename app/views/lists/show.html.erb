@@ -1,29 +1,39 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Title:</b>
+<p class="lead">
   <%= @list.title %>
 </p>
-
-<p>
-  <b>Description:</b>
+<em>
   <%= @list.description %>
-</p>
+</em>
 
-<table>
+</br>
+</br>
+
+<table class="table">
+<tr>
+  <th>Title</th>
+  <th>Description</th>
+  <th>Complete</th>
+  <th>Inspiration</th>
+  <th>Change Goal</th>
+  <th>Remove Goal</th>
+</tr>
 <% @goals.each do |goal| %>
   <tr>
     <td><%= goal.title %></td>
     <td><%= goal.description %></td>
     <td><%= goal.completed %></td>
-    <td><%= goal.img_url %></td>
-    <td><%= link_to 'Show', list_goal_path(@list, goal) %></td>
-    <td><%= link_to 'Edit', edit_list_goal_path(@list, goal) %></td>
-    <td><%= link_to 'Destroy', list_goal_path(@list, goal), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><img src=<%= goal.img_url %> class="img-polaroid"></td>
+    <% if false %>
+    <td><%= link_to 'Show', list_goal_path(@list, goal), class: "btn btn-mini" %></td>
+    <% end %>
+    <td><%= link_to 'Change', edit_list_goal_path(@list, goal), class: "btn btn-mini" %></td>
+    <td><%= link_to 'Remove', list_goal_path(@list, goal), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-mini" %></td>
   </tr>
 <% end %>
 </table>
 
-<%= link_to 'Add Goal', new_list_goal_path(@list) %> |
-<%= link_to 'Edit', edit_list_path(@list) %> |
-<%= link_to 'Back', lists_path %>
+<%= link_to 'Add Goal', new_list_goal_path(@list), class: "btn btn-link" %> |
+<%= link_to 'Edit', edit_list_path(@list), class: "btn btn-link" %> |
+<%= link_to 'Back', lists_path, class: "btn btn-link" %>
