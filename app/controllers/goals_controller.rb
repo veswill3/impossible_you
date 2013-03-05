@@ -1,5 +1,5 @@
 class GoalsController < ApplicationController
-  before_filter :get_list, only: [:new, :create]
+  before_filter :get_list, only: [:new, :create, :edit, :update]
   # GET /goals
   # GET /goals.json
   def index
@@ -76,7 +76,7 @@ class GoalsController < ApplicationController
     @goal.destroy
 
     respond_to do |format|
-      format.html { redirect_to goals_url }
+      format.html { redirect_to list_goals_url }
       format.json { head :no_content }
     end
   end
