@@ -1,8 +1,5 @@
-ImpossibleYou
+Impossible You
 =============
-
-This is a test and will be hard deleted before 3/11/13
-
 To get up and running, here are some settings I missed the first time around for postgres
 * make sure you do not need to specify a password in your database.yml
 	* [Read this](http://stackoverflow.com/questions/5546301/ruby-on-rails-postgresql-ignores-my-password-in-database-yml), but basically, edit your ph_hba.conf file in /etc/postgres/9.1/main/ so that your "local all all" line has trust at the end instead of md5
