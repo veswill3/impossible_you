@@ -8,7 +8,9 @@
     <td>
       <ul class="inline thumbnails">
         <% list.goals.each do |goal| %>
-          <li class="span2"><img src=<%= goal.img_url %> class="img-circle"></li>
+          <li class="span2">
+            <%= link_to image_tag(goal.img_url, class: "img-circle"), list_goal_path(list, goal) %>
+          </li>
         <% end %>
       </ul>
     </td>
