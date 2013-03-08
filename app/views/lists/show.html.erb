@@ -10,7 +10,7 @@
 </br>
 </br>
 
-<table class="table">
+<div class="table">
 <tr>
   <th>Title</th>
   <th>Description</th>
@@ -32,7 +32,7 @@
     <td><%= link_to 'Remove', list_goal_path(@list, goal), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-mini" %></td>
   </tr>
 <% end %>
-</table>
+</div>
 
 <%= link_to 'Add Goal', new_list_goal_path(@list), class: "btn btn-link" %> |
 <%= link_to 'Edit', edit_list_path(@list), class: "btn btn-link" %> |
