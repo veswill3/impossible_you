@@ -47,7 +47,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="/">Impossible You</a>
+          <a class="brand" href="/"><%= signed_in? ? "Impossible #{@current_user.first}" : "Impossible You" %></a>
           <div class="container-fluid nav-collapse">
             <ul class="nav pull-right">
               <li><%= link_to "About", about_path %></li>
