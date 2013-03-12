@@ -1,6 +1,6 @@
 <h1>All the Impossibilists</h1>
 <%= link_to 'New List', new_list_path, class: "btn btn-mini" %>
-<table>
+<div>
 <% @lists.each do |list| %>
   <tr>
     <td><%= link_to list.title, list %></td>
@@ -16,4 +16,4 @@
     </td>
   </tr>
 <% end %>
-</table>
+</div>
