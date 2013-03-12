@@ -49,7 +49,21 @@
           </a>
           <a class="brand" href="/">Impossible You</a>
           <div class="container-fluid nav-collapse">
-            <ul class="nav">
+            <ul class="nav pull-right">
+              <li><%= link_to "About", about_path %></li>
+              <li><%= link_to "Lists", lists_path %></li>
+
+              <% if signed_in? %>
+                <li><%= link_to "Sign out", signout_path, method: "delete" %></li>
+              <% else %>
+                <li>
+                  <%= form_for(:session, url: sessions_path, html: { class: "navbar-form" } ) do |f| %>
+                    <%= f.text_field :email,        class: "input-small", placeholder: "Email" %>
+                    <%= f.password_field :password, class: "input-small", placeholder: "Password" %>
+                    <%= f.submit "Sign in", class: "btn" %>
+                  <% end %>
+                </li>
+              <% end %>
             </ul>
           </div><!--/.nav-collapse -->
         </div>

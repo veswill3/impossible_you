@@ -1,5 +1,5 @@
 <h1>All the Impossibilists</h1>
-<%= link_to 'New List', new_list_path, class: "btn btn-mini" %>
+<%= link_to '<i class="icon-plus"></i> New List'.html_safe, new_list_path, class: "btn btn-mini" %>
 <table>
 <% @lists.each do |list| %>
   <tr>
