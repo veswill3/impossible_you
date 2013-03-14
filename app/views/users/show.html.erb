@@ -1,0 +1,20 @@
+<% provide(:title, @user.name) %>
+<div class="row">
+  <aside class="span4">
+    <section>
+      <h1>
+        <%= gravatar_for @user %>
+        <%= @user.name %>
+      </h1>
+    </section>
+  </aside>
+  <div class="span8">
+    <% if @user.goals.any? %>
+      <h3>Goals (<%= @user.goals.count %>)</h3>
+      <ul class="goals">
+        <%= render @goals %>
+      </ul>
+      <%= will_paginate @goals %>
+    <% end %>
+  </div>
+</div>
