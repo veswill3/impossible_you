@@ -20,11 +20,5 @@
   <%= @goal.img_url %>
 </p>
 
-<p>
-  <b>List:</b>
-  <%= @goal.list.title %>
-</p>
-
-
-<%= link_to 'Edit', edit_list_goal_path(@goal.list, @goal) %> |
-<%= link_to 'Back', list_path(@goal.list) %>
+<%= link_to 'Edit', edit_user_goal_path(@goal.user, @goal) %> |
+<%= link_to 'Back', user_path(@goal.user) %>
