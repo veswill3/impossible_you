@@ -4,12 +4,13 @@ class UsersController < ApplicationController
   before_filter :correct_user,   only: [:edit, :update]
   before_filter :admin_user,     only: :destroy
 
-	def show
-		@user = User.find(params[:id])
-	end
+  def show
+    @user = User.find(params[:id])
+    @goals = @user.goals.paginate(page: params[:page])
+  end
 
   def new
-  	@user = User.new
+    @user = User.new
   end
 
   def index
@@ -20,7 +21,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
       sign_in @user
-    	flash[:success] = "Welcome to Impossible You!"
+      flash[:success] = "Welcome to Impossible You!"
       redirect_to @user
     else
       render 'new'

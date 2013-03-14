@@ -1,5 +1,5 @@
 class GoalsController < ApplicationController
-  before_filter :get_list, only: [:new, :create, :edit, :update]
+  before_filter :get_user, only: [:new, :create, :edit, :update]
   # GET /goals
   # GET /goals.json
   def index
@@ -41,10 +41,10 @@ class GoalsController < ApplicationController
   # POST /goals
   # POST /goals.json
   def create
-    @goal = @list.goals.build(params[:goal])
+    @goal = @user.goals.build(params[:goal])
     respond_to do |format|
       if @goal.save
-        format.html { redirect_to list_goal_path(@list,@goal), notice: 'Goal was successfully created.' }
+        format.html { redirect_to user_goal_path(@user, @goal), notice: 'Goal was successfully created.' }
         format.json { render json: @goal, status: :created, location: @goal }
       else
         format.html { render action: "new" }
@@ -60,7 +60,7 @@ class GoalsController < ApplicationController
 
     respond_to do |format|
       if @goal.update_attributes(params[:goal])
-        format.html { redirect_to list_goal_path(@list,@goal), notice: 'Goal was successfully updated.' }
+        format.html { redirect_to user_goal_path(@user, @goal), notice: 'Goal was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -69,22 +69,17 @@ class GoalsController < ApplicationController
     end
   end
 
-  # DELETE /goals/1
-  # DELETE /goals/1.json
   def destroy
     @goal = Goal.find(params[:id])
     @goal.destroy
 
-    respond_to do |format|
-      format.html { redirect_to list_goals_url }
-      format.json { head :no_content }
-    end
+    redirect_to root_url
   end
 
   private
 
-    def get_list 
-      @list = List.find(params[:list_id])
+    def get_user
+      @user = User.find(params[:user_id])
     end
 
 end

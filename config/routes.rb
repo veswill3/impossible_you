@@ -1,8 +1,7 @@
 ImpossibleYou::Application.routes.draw do
-  resources :lists do
+  resources :users do
     resources :goals
   end
-  resources :users
   resources :sessions, only: [:new, :create, :destroy]
 
   match '/signup',  to: 'users#new'
