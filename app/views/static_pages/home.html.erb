@@ -1,2 +1,14 @@
-<h1>StaticPages#home</h1>
-<p>Find me in app/views/static_pages/home.html.erb</p>
+<% if signed_in? %>
+	<h1>Congrats, you are now signed in</h1>
+<% else %>
+  <div class="center hero-unit">
+    <h1>Impossible You</h1>
+
+    <h2>
+      Achieve more than you thought possible
+    </h2>
+
+    <%= link_to "Become the Impossible You!", signup_path, 
+                                class: "btn btn-large btn-primary" %>
+  </div>
+<% end %> 

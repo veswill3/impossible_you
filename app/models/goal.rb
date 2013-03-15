@@ -1,4 +1,7 @@
 class Goal < ActiveRecord::Base
-  belongs_to :list
   attr_accessible :completed, :description, :img_url, :title
+  belongs_to :user
+
+	validates :user_id, presence: true
+	validates :title, presence: true, length: { maximum: 140 }
 end

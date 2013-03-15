@@ -11,25 +11,32 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130302222011) do
+ActiveRecord::Schema.define(:version => 20130314031930) do
 
   create_table "goals", :force => true do |t|
     t.string   "title"
     t.text     "description"
     t.boolean  "completed"
     t.string   "img_url"
-    t.integer  "list_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.integer  "user_id"
   end
 
-  add_index "goals", ["list_id"], :name => "index_goals_on_list_id"
+  add_index "goals", ["user_id"], :name => "index_goals_on_user_id"
 
-  create_table "lists", :force => true do |t|
-    t.string   "title"
-    t.text     "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+  create_table "users", :force => true do |t|
+    t.string   "first"
+    t.string   "last"
+    t.string   "email"
+    t.string   "password_digest"
+    t.string   "remember_token"
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
+    t.boolean  "admin",           :default => false
   end
+
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+  add_index "users", ["remember_token"], :name => "index_users_on_remember_token"
 
 end
