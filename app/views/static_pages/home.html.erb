@@ -1,5 +1,24 @@
 <% if signed_in? %>
-	<h1>Congrats, you are now signed in</h1>
+  <div class="row">
+    <aside class="span8">
+      <section>
+	    <% if @user.goals.any? %>
+	      <h3>Goals (<%= @user.goals.count %>)</h3>
+	      <ol class="goals">
+	        <%= render @goals %>
+	      </ol>
+	      <%= will_paginate @goals %>
+	    <% end %>
+      </section>
+      <section>
+        <%= link_to "New Goal", new_user_goal_path(@user), class: "btn" %>
+      </section>
+    </aside>
+    <div class="span4">
+      <h3>Goal Feed</h3>
+      this is just a place holder for now, dont forget to fill this out
+    </div>
+  </div>  
 <% else %>
   <div class="center hero-unit">
     <h1>Impossible You</h1>
