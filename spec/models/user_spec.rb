@@ -1,8 +1,10 @@
 require 'spec_helper'
 
 describe User do
+
   before do
-    @user = User.new(name: "Example User", email: "user@example.com", password: "foobar", password_confirmation: "foobar")
+  @user = User.new(name: "Example User", email: "user@example.com",
+                   password: "foobar", password_confirmation: "foobar")
   end
 
   subject { @user }
@@ -88,7 +90,7 @@ describe User do
   end
 
   describe "with a password that's too short" do
-     before { @user.password = @user.password_confirmation = "a" * 5 }
+     before { @user.password = @user.password_confirmation = "a" * 3 }
      it { should be_invalid }
   end
     
