@@ -15,7 +15,6 @@ gem 'font-awesome-sass-rails'
 group :development, :test do
   gem 'faker', '1.0.1'
   gem 'rspec-rails', '2.10.1'
-  gem 'factory_girl_rails', '1.4.0'
 end
 
 group :development do
@@ -38,6 +37,7 @@ gem 'jquery-ui-rails'
   
 group :test do
   gem 'capybara', '1.1.2'
+  gem 'factory_girl_rails', '1.4.0'
   gem 'email_spec', '1.2.1'
   gem 'guard-rspec'
   gem 'launchy'
