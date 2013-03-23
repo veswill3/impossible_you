@@ -1,5 +1,8 @@
 class GoalsController < ApplicationController
+  before_filter :signed_in_user, only: [:create, :destroy]
+  before_filter :correct_user,   only: [:create, :destroy, :update]
   before_filter :get_user, only: [:new, :create, :edit, :update]
+
   # GET /goals
   # GET /goals.json
   def index
@@ -80,6 +83,12 @@ class GoalsController < ApplicationController
 
     def get_user
       @user = User.find(params[:user_id])
+    end
+
+    def correct_user
+      @goal = current_user.goals.find_by_id(params[:id])
+      flash[:error] = 'Incorrect user'
+      redirect_to root_url if @goal.nil?
     end
 
 end
