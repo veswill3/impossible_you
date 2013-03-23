@@ -37,8 +37,10 @@ gem 'jquery-ui-rails'
   
 group :test do
   gem 'capybara', '1.1.2'
-	gem 'factory_girl_rails', '1.4.0'
-	gem 'email_spec', '1.2.1'
+  gem 'factory_girl_rails', '1.4.0'
+  gem 'email_spec', '1.2.1'
+  gem 'guard-rspec'
+  gem 'launchy'
 end
 
 # To use Jbuilder templates for JSON
