@@ -8,7 +8,7 @@ describe "Goal pages" do
   before { sign_in user }
 
   describe "goal creation" do
-    before { visit new_user_goal_path(user) }
+    before { visit root_path }
 
     describe "with invalid information" do
 
@@ -18,7 +18,7 @@ describe "Goal pages" do
 
       describe "error messages" do
         before { click_button "Create Goal" }
-        it { should have_content('error') } 
+        it { should have_error_message } 
       end
     end
 

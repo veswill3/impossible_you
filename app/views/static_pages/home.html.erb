@@ -2,16 +2,16 @@
   <div class="row">
     <aside class="span8">
       <section>
-	    <% if @user.goals.any? %>
-	      <h3>Goals (<%= @user.goals.count %>)</h3>
-	      <ol class="goals">
-	        <%= render @goals %>
-	      </ol>
-	      <%= will_paginate @goals %>
-	    <% end %>
+        <%= render 'shared/goal_form' %>
       </section>
       <section>
-        <%= link_to "New Goal", new_user_goal_path(@user), class: "btn" %>
+      <% if @user.goals.any? %>
+        <h3>Goals (<%= @user.goals.count %>)</h3>
+        <ol class="goals">
+          <%= render @goals %>
+        </ol>
+        <%= will_paginate @goals %>
+      <% end %>
       </section>
     </aside>
     <div class="span4">

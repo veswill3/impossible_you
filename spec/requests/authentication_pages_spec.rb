@@ -30,8 +30,6 @@ describe "Authentication" do
       let(:user) { FactoryGirl.create(:user) }
       before { sign_in(user) }
 
-      it { should have_selector('title', text: user.name) }
-
       it { should have_link('Users',    href: users_path) }
       it { should have_link('Profile',  href: user_path(user)) }
       it { should have_link('Settings', href: edit_user_path(user)) }
@@ -90,12 +88,12 @@ describe "Authentication" do
       describe "in the Goals controller" do
 
         describe "submitting to the create action" do
-          before { post user_goals_path(user) }
+          before { post goals_path }
           specify { response.should redirect_to(signin_path) }
         end
 
         describe "submitting to the destroy action" do
-          before { delete user_goal_path(user, FactoryGirl.create(:goal)) }
+          before { delete goal_path(FactoryGirl.create(:goal)) }
           specify { response.should redirect_to(signin_path) }
         end
       end
@@ -114,12 +112,6 @@ describe "Authentication" do
       describe "submitting a PUT request to the Users#update action" do
         before { put user_path(wrong_user) }
         specify { response.should redirect_to(root_path) }
-      end
-
-      describe "creating a goal for another user" do
-      	before { post user_goals_path(wrong_user) }
-      	specify { response.should redirect_to(root_path) }
-      	# it { should have_error_message('Incorrect') } # Cant get this woring
       end
     end
 
