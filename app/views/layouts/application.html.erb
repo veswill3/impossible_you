@@ -47,7 +47,14 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="/"><%= signed_in? ? "Impossible #{@current_user.name.split(' ')[0]}" : "Impossible You" %></a>
+          <a class="brand" href="/">
+            <% if signed_in? %>
+              Impossible <%= "#{@current_user.name.split(' ')[0]}" %><br>
+              <em style="font-size:10px">becoming the Impossible You!</em>
+            <% else %>
+              Impossible You
+            <% end %>
+          </a>
           <div class="container-fluid nav-collapse">
             <ul class="nav pull-right">
               <li><%= link_to "About", about_path %></li>
