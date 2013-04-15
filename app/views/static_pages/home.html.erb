@@ -7,9 +7,9 @@
       <section>
         <% if @user.goals.any? %>
           <h3>Goals</h3>
-          <ol class="goals">
+          <ul class="goals">
             <%= render @goals %>
-          </ol>
+          </ul>
           <%= will_paginate @goals %>
         <% end %>
       </section>
