@@ -1,3 +1,20 @@
 // Place all the styles related to the Goals controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+li {
+
+	list-style-type: none;
+
+}
+
+.timestamp {
+	font-size: 10px;
+}
+
+.delete_goal{
+	color: grey;
+	text-decoration: underline;
+	font-size: 10px;
+}

@@ -60,7 +60,7 @@
               <% else %>
                 <li>
                   <%= form_for(:session, url: sessions_path, html: { class: "navbar-form" } ) do |f| %>
-                    <%= f.text_field :email,        class: "input-small", placeholder: "Email" %>
+                    <%= f.text_field :email,        class: "input", placeholder: "Email" %>
                     <%= f.password_field :password, class: "input-small", placeholder: "Password" %>
                     <%= f.submit "Sign in", class: "btn" %>
                   <% end %>
@@ -81,7 +81,7 @@
       </div><!--/row-->
 
       <footer>
-        <p>&copy; Impossible You 2013</p>
+        <p class="footer">&copy; Impossible You 2013</p>
       </footer>
 
     </div> <!-- /container -->

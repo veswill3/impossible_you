@@ -5,3 +5,12 @@
   To use Glyphicons sprites instead of Font Awesome, replace with "require twitter-bootstrap-static/sprites"
   =require twitter-bootstrap-static/fontawesome
   */
+
+
+  .container-fluid{
+  	padding-left: 50px;
+  }
+
+  footer{
+  	text-align: center;
+  }

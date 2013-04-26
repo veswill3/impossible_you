@@ -1,12 +1,13 @@
 <li>
-  <span class="content"><%= link_to goal.title, goal %></span>
-  <span class="timestamp">
-    Posted <%= time_ago_in_words(goal.created_at) %> ago.
-  </span>
+  <div class="content"><%= link_to goal.title, goal %>
   <% if current_user?(goal.user) %>
-    <%= link_to "delete", goal_path(goal), 
-    																 method: :delete,
+    <%= link_to "delete", goal_path(goal), {:class => 'delete_goal'},
+                                     method: :delete,
                                      data: { confirm: "You sure?" },
                                      title: goal.title %>
   <% end %>
+  </div>
+  <span class="timestamp">
+      committed <%= time_ago_in_words(goal.created_at) %> ago.
+  </span>
 </li>
