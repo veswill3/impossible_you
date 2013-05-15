@@ -18,7 +18,7 @@ describe "Static pages" do
         visit root_path
       end
       it "should have a goal section" do
-        page.should have_selector("h3", text: 'Goals')
+        page.should have_selector("h4", text: 'Goals')
       end
     end
   end

@@ -31,6 +31,19 @@ div {
   }
 }
 
+.goal_title {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 10px;  
+}
+
+.goal_title_completed {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 10px;  
+  text-decoration: line-through;  
+}
+
 #notice {
   color: green;
 }

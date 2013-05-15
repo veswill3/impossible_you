@@ -1,13 +1,21 @@
 <li>
-  <div class="content"><%= link_to goal.title, goal %>
-  <% if current_user?(goal.user) %>
-    <%= link_to "delete", goal_path(goal), {:class => 'delete_goal'},
+  <div class="content">
+    <% if goal.completed %>
+      <span class="goal_title_completed"><%= goal.title %></span>
+    <% else %>
+      <span class="goal_title"><%= goal.title %></span>    
+    <% end %>
+
+    <%= link_to raw('<i class="icon-edit"></i>'), edit_goal_path(goal) %>
+    <% if current_user?(goal.user) %>
+    <%= link_to raw('<i class="icon-trash"></i>'), goal_path(goal), 
                                      method: :delete,
-                                     data: { confirm: "You sure?" },
+                                     data: { confirm: "You sure you want to give up on your dreams?" },
                                      title: goal.title %>
   <% end %>
   </div>
-  <span class="timestamp">
+  <br>
+<!--   <span class="timestamp">
       committed <%= time_ago_in_words(goal.created_at) %> ago.
-  </span>
+  </span> -->
 </li>
