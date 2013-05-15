@@ -35,13 +35,23 @@ describe "Goal pages" do
     before { FactoryGirl.create(:goal, user: user) }
 
     describe "as correct user" do
-      before { visit root_path }
+      before { visit goal_path(user.goals.first) }
 
 =begin
       it "should delete a goal" do
         expect { first('.icon-trash').click }.to change(Goal, :count).by(-1)
       end
 =end
+    end
+
+    describe "as incorrect user" do
+      let(:wrong_user) { FactoryGirl.create(:user, email: "wrong@example.com") }
+      before do
+        FactoryGirl.create(:goal, user: wrong_user)
+        visit goal_path(wrong_user.goals.first)
+      end
+
+      it { should_not have_link('Delete') }
     end
   end
 end
